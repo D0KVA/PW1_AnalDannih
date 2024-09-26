@@ -152,11 +152,9 @@ JOIN Items ON OrderItems.Item_ID = Items.ID_Item;
 SELECT Orders.ID_Order, 
        Orders.DateOrder, 
        Clients.NameClient,
-       SUM(Items.PriceItem * OrderItems.Quantity) AS TotalOrderValue,
-       SUM(SUM(Items.PriceItem * OrderItems.Quantity)) OVER () AS TotalSales
+       SUM(Items.PriceItem * OrderItems.Quantity) OVER ()  AS TotalOrderValue
 FROM Orders
 JOIN OrderItems ON Orders.ID_Order = OrderItems.Order_ID
 JOIN Items ON OrderItems.Item_ID = Items.ID_Item
 JOIN Clients ON Orders.Client_ID = Clients.ID_Client
-GROUP BY Orders.ID_Order, Orders.DateOrder, Clients.NameClient;
 --Последнее задание
