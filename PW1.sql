@@ -110,11 +110,11 @@ ORDER BY Orders.DateOrder;
 --¬ывод заказов определенного клиента
 
 --ѕодсчет количества заказов по клиентам
-SELECT Clients.NameClient, COUNT(Orders.ID_Order) AS OrderCount
-FROM  Clients
-LEFT JOIN Orders ON Clients.ID_Client = Orders.Client_ID
-GROUP BY Clients.NameClient
-HAVING COUNT(Orders.ID_Order) > 1;
+	SELECT Clients.NameClient, COUNT(Orders.ID_Order) AS OrderCount
+	FROM  Clients
+	LEFT JOIN Orders ON Clients.ID_Client = Orders.Client_ID
+	GROUP BY Clients.NameClient
+	HAVING COUNT(Orders.ID_Order) > 1;
 --ѕодсчет количества заказов по клиентам
 
 --¬ывод уникальных типов предметов, заказанных клиентами
